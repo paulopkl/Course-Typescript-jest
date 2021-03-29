@@ -8,9 +8,10 @@ const createEnterpriseCustomer = (name: string, cnpj: string): EnterpriseCustome
     return new EnterpriseCustomer(name, cnpj);
 }
 
-afterEach(() => jest.clearAllMocks());
 
 describe('IndividualCustomer', () => {
+    afterEach(() => jest.clearAllMocks());
+    
     test('should have firstName, lastName and CPF', () => {
         const sut = createIndividualCustomer("Paulo", "Ricardo", "111.111.111-11");
         expect(sut).toHaveProperty("firstName", "Paulo");
@@ -26,6 +27,8 @@ describe('IndividualCustomer', () => {
 });
 
 describe('EnterpriseCustomer', () => {
+    afterEach(() => jest.clearAllMocks());
+    
     test('should have name and cnpj', () => {
         const sut = createEnterpriseCustomer("Udemy", "11.111.111/1111");
         expect(sut).toHaveProperty("name", "Udemy");
